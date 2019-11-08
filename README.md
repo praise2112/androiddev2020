@@ -10,7 +10,7 @@ Students are expected to:
 Student Info
 =======================
 
-* Name: *YourNameHere*
-* ID: *YourIdHere*
-* Group ID: *Your Group ID here*
+* Name: Oketola Praise Oluwabamise
+* ID: USTHBI8-137
+* Group ID: 1
 

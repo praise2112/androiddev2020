@@ -1,9 +1,7 @@
 package vn.edu.usth.weather;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -11,8 +9,15 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.weather_activity);
         Log.i("onCreate()", "onCreate() method is active");
+
+        // Create a new Fragment to be placed in the activity layout
+        ForecastFragment firstFragment = new ForecastFragment();
+
+        // Add the fragment to the 'container' FrameLayout
+        getSupportFragmentManager().beginTransaction().add(
+                R.id.container, firstFragment).commit();
     }
 
     @Override

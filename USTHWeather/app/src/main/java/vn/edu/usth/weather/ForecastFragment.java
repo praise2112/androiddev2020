@@ -20,12 +20,18 @@ public class ForecastFragment extends Fragment {
         // Required empty public constructor
     }
 
+//    @Nullable
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        View v = new View(getContext());
+//        v.setBackgroundColor(0xFF00AC9D);
+//        return v;
+//    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = new View(getContext());
-        v.setBackgroundColor(0xFF00AC9D);
-        return v;
+        return inflater.inflate(R.layout.fragment_forecast, container, false);
     }
 }
 

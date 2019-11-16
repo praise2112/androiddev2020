@@ -3,6 +3,27 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="thursday">Thursday</string>
+<!--    <string name="description">Scattered ThunderStorms \n  23C - 31C</string>-->
+    <string name="temperature"></string>
+
     <string name="weather_image_description">Weather Icon</string>
+    <string-array name ="days">
+        <item name="monday">Mon</item>
+        <item name="tuesday">Tue</item>
+        <item name="wednesday">Wed</item>
+        <item name="thursday">Thu</item>
+        <item name="friday">Fri</item>
+        <item name="saturday">Sat</item>
+        <item name="sunday">Sun</item>
+    </string-array>
+    <string-array name ="weather_description">
+        <item name="scattered_thuderstorms">Scattered ThunderStorms \n 24C - 28C</item>
+        <item name="showers">Showers \n 24C - 37C</item>
+        <item name="Rain">Rain \n 22C - 23C</item>
+        <item name="scattered_showers">Scattered Showers \n 22C - 27C</item>
+        <item name="mostly_cloudy">Mostly Cloudy \n 22C - 30C</item>
+        <item name="partly_cloudy">Partly Cloudy \n 24C - 31C</item>
+        <item name="thunderstorms">ThunderStorms \n 25C - 28C</item>
+    </string-array>
+
 </resources>

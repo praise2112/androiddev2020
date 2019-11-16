@@ -6,12 +6,7 @@
     android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:background="#d9edf3"
     android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingTop="5dp"
-    android:paddingRight="20dp"
     tools:context=".ForecastFragment">
 
     <ScrollView
@@ -27,4 +22,5 @@
 
     </ScrollView>
 </LinearLayout>
+
 

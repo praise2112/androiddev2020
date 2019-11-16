@@ -6,14 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -53,21 +50,21 @@ public class ForecastFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.forecast_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
 
         days = getResources().getStringArray(R.array.days);
         description = getResources().getStringArray(R.array.weather_description);
 
-        LinearLayout fragment_container = (LinearLayout) view.findViewById(R.id
-                .fragment_container);
+//        LinearLayout fragment_container = (LinearLayout) view.findViewById(R.id
+//                .fragment_container);
         LinearLayout scroll_view_container = (LinearLayout) view.findViewById(R.id
                 .scroll_view_container);
 
 
-//        Generating multiple forecast_fragment_item and adding them into fragment_container
-        for (int i = 0; i < 16 ; i++) {
-//            modifying a forecast_fragment_item
-            final View v = inflater.inflate(R.layout.forecast_fragment_item, null);
+//        Generating multiple fragment_forecast_item and adding them into fragment_container
+        for (int i = 0; i < 16 ; i++) { // generating 15 fragment_forecast_item
+//            modifying a fragment_forecast_item
+            final View v = inflater.inflate(R.layout.fragment_forecast_item, null);
             TextView day = (TextView) v.findViewById(R.id.day);
             TextView weatherDescription = (TextView) v.findViewById(R.id.weatherDescription);
             ImageView weatherImg = (ImageView) v.findViewById(R.id.weatherImg);
@@ -77,7 +74,7 @@ public class ForecastFragment extends Fragment {
             scroll_view_container.addView(v);   // adding forest_item_fragment to scroll view
         }
 
-//        inflater.inflate(R.layout.forecast_fragment_item, fragment_container);
+//        inflater.inflate(R.layout.fragment_forecast_item, fragment_container);
         return view;
     }
 }

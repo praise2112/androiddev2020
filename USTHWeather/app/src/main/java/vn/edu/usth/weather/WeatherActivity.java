@@ -1,16 +1,24 @@
 package vn.edu.usth.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
 import android.os.Bundle;
 import android.util.Log;
 
 public class WeatherActivity extends AppCompatActivity {
+    private ViewPager viewPager;
+    private Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_activity);
         Log.i("onCreate()", "onCreate() method is active");
+
+        adapter = new Adapter(getSupportFragmentManager());
+        viewPager = findViewById(R.id.pager);
+        viewPager.setAdapter(adapter);
 
         // Create a new Fragment to be placed in the activity layout
 //        ForecastFragment firstFragment = new ForecastFragment();

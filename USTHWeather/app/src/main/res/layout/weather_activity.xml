@@ -12,17 +12,12 @@
     android:paddingTop="5dp"
     android:paddingRight="5dp"
     tools:context=".WeatherActivity">
-    <fragment
-        android:id="@+id/weather_fragment"
-        android:name="vn.edu.usth.weather.WeatherFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <fragment
-        android:id="@+id/forecast_fragment"
-        android:name="vn.edu.usth.weather.ForecastFragment"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:name="vn.edu.usth.weather.WeatherAndForecastFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

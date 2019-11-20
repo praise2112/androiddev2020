@@ -2,6 +2,7 @@ package vn.edu.usth.weather;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,14 +14,17 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 
 public class Adapter extends FragmentPagerAdapter {
+    private Resources resources;
     private final int PAGE_COUNT = 3;
-    private String titles[] =  new String[] { "Hanoi", "Paris", "Toulouse" };
+    private String titles[] = null;
+//     new String[] { "Hanoi", "Paris", "Toulouse" }
 
 
 
 
-    public Adapter(FragmentManager fm) {
+    public Adapter(FragmentManager fm, Resources resources) {
         super(fm);
+        this.resources = resources;
     }
 
     @NonNull
@@ -59,6 +63,7 @@ public class Adapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int page) {
+        titles = resources.getStringArray(R.array.locations);
 // returns a tab title corresponding to the specified page
         Log.i("getPageTitle", "getItem: "+ titles[page]);
         return titles[page];

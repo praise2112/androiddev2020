@@ -3,4 +3,6 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="fragment_weather_background">#d9edf3</color>
+    <color name="weather_activity_background">#FFFFFF</color>
 </resources>

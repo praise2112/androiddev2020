@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class WeatherFragment extends Fragment {
     private int pos;
     private TextView location;
-    private String currentLocation [] =  new String[] { "Hanoi", "Paris", "Toulouse" };
+    private String currentLocation [] = null ;
 
 
 
@@ -33,7 +33,7 @@ public class WeatherFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-
+        currentLocation = getResources().getStringArray(R.array.locations); // get location list from resources
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_weather, container, false);
 //        Log.i("Current Location", "onCreateView: "+ currentLocation[0]);

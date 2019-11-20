@@ -15,7 +15,7 @@
         android:gravity="start"
         android:text=""
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textSize="@dimen/fragment_forecast_item_text_size_left" />
 
     <ImageView
         android:id="@+id/weatherImg"
@@ -30,6 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|end"
         android:text=""
-        android:textSize="14sp" />
+        android:textSize="@dimen/fragment_forecast_item_text_size_right"  />
 
 </LinearLayout>

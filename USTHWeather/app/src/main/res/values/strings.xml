@@ -25,5 +25,10 @@
         <item name="partly_cloudy">Partly Cloudy \n 24C - 31C</item>
         <item name="thunderstorms">ThunderStorms \n 25C - 28C</item>
     </string-array>
+    <string-array name="locations">
+        <item name="hanoi">Hanoi</item>
+        <item name="paris">Paris</item>
+        <item name="toulouse">Toulouse</item>
+    </string-array>
 
 </resources>

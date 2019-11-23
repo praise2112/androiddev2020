@@ -3,32 +3,32 @@
 
     <!-- TODO: Remove or change this placeholder text -->
 <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
-    <string name="current_weather">12C \n Cloudy vi</string>
+    <string name="current_weather">12C \n Nhiều mây</string>
 <!--    <string name="current_location">Paris </string>-->
 
     <string name="weather_image_description">Weather Icon</string>
     <string-array name="days">
-        <item name="monday">Mon  vi</item>
-        <item name="tuesday">Tue vi</item>
-        <item name="wednesday">Wed vi</item>
-        <item name="thursday">Thu vi</item>
-        <item name="friday">Fri vi</item>
-        <item name="saturday">Sat vi</item>
-        <item name="sunday">Sun vi</item>
+        <item name="monday">Thứ hai</item>
+        <item name="tuesday">Thú ba</item>
+        <item name="wednesday">Thú tu</item>
+        <item name="thursday">Thú nám</item>
+        <item name="friday">Thú sáu</item>
+        <item name="saturday">Thú bảy</item>
+        <item name="sunday">Chủ Nhật</item>
     </string-array>
     <string-array name="weather_description">
-        <item name="scattered_thuderstorms">Scattered ThunderStorms vi \n 24C - 28C</item>
-        <item name="showers">Showers vi \n 24C - 37C</item>
-        <item name="Rain">Rain vi \n 22C - 23C</item>
-        <item name="scattered_showers">Scattered Showers vi \n 22C - 27C</item>
-        <item name="mostly_cloudy">Mostly Cloudy vi \n 22C - 30C</item>
-        <item name="partly_cloudy">Partly Cloudy vi \n 24C - 31C</item>
-        <item name="thunderstorms">ThunderStorms vi \n 25C - 28C</item>
+        <item name="scattered_thuderstorms">Sấm chớp rải rác \n 24C - 28C</item>
+        <item name="showers">Vòi hoa sen \n 24C - 37C</item>
+        <item name="Rain">Mưa \n 22C - 23C</item>
+        <item name="scattered_showers">Mưa rào rải rác \n 22C - 27C</item>
+        <item name="mostly_cloudy">Nhiều mây \n 22C - 30C</item>
+        <item name="partly_cloudy">Một phần mây \n 24C - 31C</item>
+        <item name="thunderstorms">Phần mềm đám mây \n 25C - 28C</item>
     </string-array>
     <string-array name="locations">
-        <item name="hanoi">Hanoi vi</item>
-        <item name="paris">Paris vi</item>
-        <item name="toulouse">Toulouse vi</item>
+        <item name="hanoi">Hà nội</item>
+        <item name="paris">Paris</item>
+        <item name="toulouse">Toulouse</item>
     </string-array>
 
 </resources>

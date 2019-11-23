@@ -4,5 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="fragment_weather_background">#d9edf3</color>
-    <color name="weather_activity_background">#FFFFFF</color>
+    <color name="fragment_forecast_background">#FFFFFF</color>
+    <color name="weather_activity_background">#008577</color>
+    <color name="violet">#5B166F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="skyblue">#d9edf3</color>
 </resources>

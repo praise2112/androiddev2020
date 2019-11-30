@@ -1,24 +1,50 @@
 package vn.edu.usth.weather;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.FileUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.Locale;
+//org.apache.commons.io.IOUtils;
+
 
 public class WeatherActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private Adapter adapter;
     private TabLayout tabLayout;
+
+    private static final int REQUEST_ID_READ_PERMISSION = 100;
+    private static final int REQUEST_ID_WRITE_PERMISSION = 200;
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +60,102 @@ public class WeatherActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        // Create a new Fragment to be placed in the activity layout
-//        ForecastFragment firstFragment = new ForecastFragment();
-//
-//        // Add the fragment to the 'container' FrameLayout
-//        getSupportFragmentManager().beginTransaction().add(
-//                R.id.container, firstFragment).commit();
+        // Music
+        askPermissionAndWriteFile();    // save music to external storage from res
+        askPermissionAndReadFile();     // play music from external storage
+
     }
+
+
+    private void askPermissionAndWriteFile() {
+        boolean canWrite = this.askPermission(REQUEST_ID_WRITE_PERMISSION,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        //
+        if (canWrite) {
+            this.writeFile();
+        }
+    }
+
+    private void askPermissionAndReadFile() {
+        boolean canRead = this.askPermission(REQUEST_ID_READ_PERMISSION,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+        //
+        if (canRead) {
+            this.readFile();
+        }
+    }
+
+    private void readFile() {       // play music
+        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath() + "/music.mp3";
+        MediaPlayer player = new MediaPlayer();
+
+        try {
+            player.setDataSource(path);
+            player.prepare();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Exception of type : " + e.toString());
+            e.printStackTrace();
+        }
+        player.start();
+        Toast.makeText(getApplicationContext(), "Playing music", Toast.LENGTH_LONG).show();
+
+
+    }
+
+    private void writeFile() {  // save music
+        File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC);
+        // ==> /storage/emulated/0/note.txt
+        String path = extStore.getAbsolutePath() + "/music.mp3";
+        Log.i("ExternalStorageDemo", "Save to: " + path);
+        InputStream file = getApplicationContext().getResources().openRawResource(R.raw.music);
+
+        try {
+            File myFile = new File(path);
+            FileOutputStream fOut = new FileOutputStream(myFile);
+
+            byte[] buffer = new byte[file.available()];
+            file.read(buffer);
+
+            File targetFile = new File(path);
+            OutputStream outStream = new FileOutputStream(targetFile);
+            outStream.write(buffer);
+            fOut.close();
+
+            Toast.makeText(getApplicationContext(), "music saved", Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // With Android Level >= 23, you have to ask the user
+    // for permission with device (For example read/write data on the device).
+    private boolean askPermission(int requestId, String permissionName) {   //request permission
+        if (android.os.Build.VERSION.SDK_INT >= 23) {
+
+            // Check if we have permission
+            int permission = ActivityCompat.checkSelfPermission(this, permissionName);
+
+
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                // If don't have permission so prompt the user.
+                this.requestPermissions(
+                        new String[]{permissionName},
+                        requestId
+                );
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     @Override
     protected void onStart() {
         super.onStart();
+
         Log.i("onStart()", "onStart() method is active");
     }
 
@@ -72,19 +183,7 @@ public class WeatherActivity extends AppCompatActivity {
         Log.i("onDestroy()", "onDestroy() method is active");
     }
 
-    private void setAppLocale(String localeCode){
-        Resources resources = getResources();
-        DisplayMetrics dm = resources.getDisplayMetrics();
-        Configuration config = resources.getConfiguration();
-        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.JELLY_BEAN_MR1){
-            config.setLocale(new Locale(localeCode.toLowerCase()));
-        } else {
-            config.locale = new Locale(localeCode.toLowerCase());
-        }
-        resources.updateConfiguration(config, dm);
-    }
 }
-
 /** App Start:
  * onCreate()
  * onStart()

@@ -7,6 +7,7 @@
     <string name="current_location">Paris</string>
 
     <string name="weather_image_description">Weather Icon</string>
+    <string name="refresh">Refresh</string>
     <string-array name="days">
         <item name="monday">Mon</item>
         <item name="tuesday">Tue</item>

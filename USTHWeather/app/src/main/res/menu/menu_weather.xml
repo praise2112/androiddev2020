@@ -10,5 +10,7 @@
         />
     <item
         android:id="@+id/settings"
+        android:icon="@drawable/baseline_settings_applications_white_18dp"
+        app:showAsAction="always"
         android:title="Settings" />
 </menu>

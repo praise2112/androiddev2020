@@ -26,6 +26,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 
 public class ForecastFragment extends Fragment {
     private View view;
@@ -86,7 +94,12 @@ public class ForecastFragment extends Fragment {
             scroll_view_container.addView(v);   // adding forest_item_fragment to scroll view
         }
 
-        new GetRequest().execute("https://ictlab.usth.edu.vn/wp-content/uploads/logos/usth.png");
+
+        // once, should be performed once per app instance
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(getImageRequest());
+        // or
+        // new GetRequest().execute("https://ictlab.usth.edu.vn/wp-content/uploads/logos/usth.png");
 
 
 //        inflater.inflate(R.layout.fragment_forecast_item, fragment_container);
@@ -151,5 +164,26 @@ public class ForecastFragment extends Fragment {
             imageView.setImageBitmap(result);
         }
     }
+
+    public ImageRequest getImageRequest(){
+
+        // a listener (kinda similar to onPostExecute())
+        Response.Listener<Bitmap> listener =
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        ImageView iv = (ImageView) view.findViewById(R.id.usthLogo);
+                        iv.setImageBitmap(response);
+                    }
+                };
+        // a simple request to the required image
+        ImageRequest imageRequest = new ImageRequest(
+                "https://ictlab.usth.edu.vn/wp-content/uploads/logos/usth.png",
+                listener, 0, 0, ImageView.ScaleType.CENTER,
+                Bitmap.Config.ARGB_8888,null);
+        return imageRequest;
+
+    }
+
 }
 

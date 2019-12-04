@@ -9,6 +9,15 @@
     android:background="@color/skyblue"
     tools:context=".WeatherActivity">
 
+<!--    <ImageView-->
+<!--        android:id="@+id/usthLogo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="120dp"-->
+<!--        android:layout_marginTop="204dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:srcCompat="@tools:sample/avatars" />-->
 
 
     <androidx.viewpager.widget.ViewPager
@@ -22,7 +31,6 @@
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/colorPrimary"/>
     </androidx.viewpager.widget.ViewPager>
-
 
 
 

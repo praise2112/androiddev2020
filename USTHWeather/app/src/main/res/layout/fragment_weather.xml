@@ -5,46 +5,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".WeatherFragment"
+    android:layout_height="wrap_content"
+    android:layout_weight="6"
     android:background="@color/skyblue"
 
 
-    >
+    tools:context=".WeatherFragment">
+
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".WeatherFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/frame"
-    >
+        tools:context=".WeatherFragment">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="20dp"
-            >
-        <ImageView
-            android:layout_width="@dimen/fragment_weather_image_size"
-            android:layout_height="@dimen/fragment_weather_image_size"
-            android:layout_centerInParent="true"
-            android:src="@drawable/cloudy"
-            />
+            android:padding="20dp">
 
-        <TextView
-            android:id="@+id/current_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:text="@string/current_weather"
-            android:textSize="@dimen/fragment_weather_text_size" />
+            <ImageView
+                android:id="@+id/current_image_description"
+                android:layout_width="@dimen/fragment_weather_image_size"
+                android:layout_height="@dimen/fragment_weather_image_size"
+                android:layout_centerInParent="true"
+                />
 
-        <TextView
+            <TextView
+                android:id="@+id/current_weather_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:textSize="@dimen/fragment_weather_text_size"
+                />
 
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:textSize="@dimen/fragment_weather_text_size" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/fragment_weather_text_size" />
+        </RelativeLayout>
     </RelativeLayout>
 
 

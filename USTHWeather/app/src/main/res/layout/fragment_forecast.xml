@@ -9,6 +9,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:padding="5dp"
+    android:layout_weight="4"
     tools:context=".ForecastFragment">
 <!--            android:layout_height="303dp"-->
     <FrameLayout

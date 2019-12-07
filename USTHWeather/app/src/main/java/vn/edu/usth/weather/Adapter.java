@@ -33,24 +33,26 @@ public class Adapter extends FragmentPagerAdapter {
 
         Bundle bundle = new Bundle();
         bundle.putString("position", Integer.toString(page));
+        bundle.putString("location", titles[page]);
         Log.i("Page is", "getItem: "+ page);
 
         switch (page) {
             case 0:
-                WeatherAndForecastFragment Fragment1 = new WeatherAndForecastFragment();
+                WeatherAndForecastFragment Fragment1 =  WeatherAndForecastFragment.newInstance();
                 Fragment1.setArguments(bundle);
                 return Fragment1;
             case 1:
-                WeatherAndForecastFragment Fragment2 = new WeatherAndForecastFragment();
+                WeatherAndForecastFragment Fragment2 =  WeatherAndForecastFragment.newInstance();
                 Fragment2.setArguments(bundle);
                 return Fragment2;
             case 2:
-                WeatherAndForecastFragment Fragment3 = new WeatherAndForecastFragment();
+                WeatherAndForecastFragment Fragment3 = WeatherAndForecastFragment.newInstance();
                 Fragment3.setArguments(bundle);
                 return Fragment3;
         }
-        WeatherAndForecastFragment EmptyFragment;
-        return EmptyFragment = new WeatherAndForecastFragment();
+//        WeatherAndForecastFragment EmptyFragment;
+//        return EmptyFragment = new WeatherAndForecastFragment();
+        return null;
 
 
 //        return WeatherAndForecastFragment.newInstance(bundle);

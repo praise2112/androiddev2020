@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,14 +15,25 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.material.tabs.TabLayout;
 
+
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class WeatherActivity extends AppCompatActivity {
@@ -56,6 +68,9 @@ public class WeatherActivity extends AppCompatActivity {
 //        askPermissionAndReadFile();     // play music from external storage
 
 //        new GetRequest().execute("http://ict.usth.edu.vn/wp-content/uploads/usth/usthlogo.png");
+
+//        WeatherHttpClient weatherHttpClient = new WeatherHttpClient();
+//        weatherHttpClient.getWeatherData("London", "5");
 
     }
 
@@ -156,6 +171,10 @@ public class WeatherActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.refresh:
                 Toast.makeText(getApplicationContext(), "Refreshing...", Toast.LENGTH_LONG).show();
+                finish();
+                overridePendingTransition(0, 0);
+                startActivity(getIntent());
+                overridePendingTransition(0, 0);
 
                 return true;
             case R.id.settings:
@@ -196,6 +215,45 @@ public class WeatherActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i("onDestroy()", "onDestroy() method is active");
     }
+//
+//    public class WeatherHttpClient {
+//        //        539487bbed5ea48fa30f9ae17bbbd4e0
+////        http://api.weatherstack.com/forecast?access_key=539487bbed5ea48fa30f9ae17bbbd4e0&query=NewYork
+////
+//        private String BASE_URL = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=";
+//        //        private String IMG_URL = "http://openweathermap.org/img/w/";
+//        private String apiKey = "06d6bbbc9161428f80b40023190612";
+////        "http://api.openweathermap.org/data/2.5/weather?q=London&cnt=5&aapid=592bfdab1607f4bec1bd11ac83400f2d"
+////        http://api.worldweatheronline.com/premium/v1/weather.ashx?key=06d6bbbc9161428f80b40023190612&q=48.85,2.35&num_of_days=2&tp=3&format=json
+//
+//        public StringRequest getWeatherData(String location, String no_of_days) {
+//            HttpURLConnection con = null;
+//            InputStream is = null;
+//            String url = BASE_URL + apiKey + "&q=" + location + "&num_of_days=" + no_of_days + "&tp=24" + "&format=json";
+//
+//            Log.i("URL", "getWeatherData: "+ url);
+//            StringRequest request = new StringRequest(url,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+////                            res = response;
+//                            Log.i("USTHWeather", "Json response " + response);
+////                            return response;
+//                        }
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                            Log.i("GetWeatherData", "onErrorResponse: "+ error);
+//                        }
+//                    });
+//
+//
+//
+//            return request;
+//        }
+//    }
+
 
 }
 /** App Start:
